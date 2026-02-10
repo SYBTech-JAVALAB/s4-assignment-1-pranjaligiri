@@ -1,0 +1,55 @@
+package assignment1;
+public class book {
+  String title;
+  String author;
+  int isbn;
+  double price;
+  int stock;
+
+  public book(String title,String author,int isbn,double price,int stock) {
+    this.title=title;
+    this.author=author;
+    this.isbn=isbn;
+    this.price=price;
+    this.stock=stock;
+  }
+  public void display() {
+    System.out.println("\n----Book Details----");
+    System.out.println("Title: "+title);
+    System.out.println("Auhtor: "+author);
+    System.out.println("ISBN: "+isbn);
+    System.out.println("Price: "+price);
+    System.out.println("Stock: "+stock);
+  }
+  public void discount(double percent) {
+    price=price-(price*percent/100);
+    System.out.println("Discount of "+percent+ "% is applied");
+  }
+  public void addStock(int quantity) {
+    stock+=quantity;
+    System.out.println("Quantity added to stock");
+  }
+  public void availability() {
+    if(stock>0) {
+      
+    System.out.println("Book is available in stock");
+    }
+    else {
+      System.out.println("Book not available");
+    }  
+}
+public static void main(String[]args) {
+  book b1=new book("Harry Potter","J.K Rowling",78354,499.00,10);
+  book b2=new book("Data Structures","Prof.sharma",12863,750.00,0);
+  b1.display();
+  b1.availability();
+  b1.addStock(20);
+  b1.discount(5);
+  b1.display();
+  
+  b2.display();
+  b2.availability();
+  b2.addStock(5);
+  b2.discount(10);
+  b2.display();
+}
